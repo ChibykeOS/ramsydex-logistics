@@ -217,10 +217,6 @@ export default function GalleryPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
-                <span className="absolute top-3 right-3 px-3 py-1 bg-slate-950/80 backdrop-blur-md border border-slate-700/80 rounded-full text-[10px] font-bold text-amber-400">
-                  {item.tag}
-                </span>
-
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/40">
                   <span className="p-3 bg-red-600 text-white rounded-full shadow-lg">
                     <Maximize2 className="w-5 h-5" />

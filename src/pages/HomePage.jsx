@@ -21,13 +21,13 @@ import {
   ExternalLink
 } from 'lucide-react';
 import InteractiveRateEstimator from '../components/InteractiveRateEstimator';
+import InteractiveWorldMap from '../components/InteractiveWorldMap';
 
 export default function HomePage({ setActivePage, openQuoteModal, onSelectQuoteFromEstimator }) {
   const services = [
     {
       id: 'freight',
       title: 'Freight & Transportation',
-      badge: 'Multi-Modal Logistics',
       image: '/images/freight-transport.jpg',
       desc: 'Multi-modal cargo transit connecting commercial trucking, ocean containers, and airfreight.',
       bullets: [
@@ -39,7 +39,6 @@ export default function HomePage({ setActivePage, openQuoteModal, onSelectQuoteF
     {
       id: 'customs',
       title: 'Customs & Trade Services',
-      badge: 'Direct Port Clearance',
       image: '/images/customs-clearance.jpg',
       desc: 'Licensed customs brokerage expediting K1/K2 clearance at Port Klang, KLIA, and border gates.',
       bullets: [
@@ -51,7 +50,6 @@ export default function HomePage({ setActivePage, openQuoteModal, onSelectQuoteF
     {
       id: 'qc',
       title: 'Quality Control (QC) & Inspection',
-      badge: 'Zero-Defect Protocol',
       image: '/images/qc-inspection.jpg',
       desc: 'Rigorous cargo inspection and SKU audits safeguarding shipment integrity before dispatch.',
       bullets: [
@@ -255,9 +253,6 @@ export default function HomePage({ setActivePage, openQuoteModal, onSelectQuoteF
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-80" />
-                  <span className="absolute top-3.5 right-3.5 px-3 py-1 bg-slate-950/85 backdrop-blur-md border border-slate-700 rounded-full text-[11px] font-bold text-amber-400">
-                    {svc.badge}
-                  </span>
                 </div>
 
                 {/* Body */}
@@ -326,45 +321,21 @@ export default function HomePage({ setActivePage, openQuoteModal, onSelectQuoteF
         <InteractiveRateEstimator onSelectQuote={onSelectQuoteFromEstimator} />
       </section>
 
-      {/* GLOBAL NETWORK MAP TEASER */}
+      {/* GLOBAL NETWORK MAP SECTION */}
       <section className="py-20 px-4 sm:px-8 bg-slate-100/70 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800 transition-colors">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
-              <Globe className="w-3.5 h-3.5" />
-              <span>Cross-Border Trade Corridors</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
-              Strategic Gateway to 140+ Trade Lanes
-            </h2>
-            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
-              Ramsydex orchestrates direct trade lanes linking our Central Malaysia Hub (Shah Alam) with Singapore, Thailand, China, Europe, and the Americas. Experience bonded overland tracking and priority customs clearance.
-            </p>
-
-            <div className="space-y-3 mb-8">
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-sm">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                <div className="text-xs">
-                  <span className="font-bold text-slate-900 dark:text-white">Central Malaysia ↔ Singapore:</span>
-                  <span className="text-slate-600 dark:text-slate-400 ml-1">Daily bonded trucking via Tuas / Woodlands (18-24h)</span>
-                </div>
+        <div className="max-w-7xl mx-auto space-y-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
+                <Globe className="w-3.5 h-3.5" />
+                <span>Cross-Border Trade Corridors</span>
               </div>
-
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-sm">
-                <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                <div className="text-xs">
-                  <span className="font-bold text-slate-900 dark:text-white">Central Malaysia ↔ Thailand:</span>
-                  <span className="text-slate-600 dark:text-slate-400 ml-1">Cross-border overland via Bukit Kayu Hitam / Sadao</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-sm">
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                <div className="text-xs">
-                  <span className="font-bold text-slate-900 dark:text-white">Port Klang ↔ Greater China & Europe:</span>
-                  <span className="text-slate-600 dark:text-slate-400 ml-1">Direct ocean loops & scheduled airfreight departures</span>
-                </div>
-              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
+                Strategic Gateway to 140+ Trade Lanes
+              </h2>
+              <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                Ramsydex orchestrates direct trade lanes linking our Central Malaysia Hub (Shah Alam) with Singapore, Thailand, China, Europe, and the Americas. Experience bonded overland tracking and priority customs clearance.
+              </p>
             </div>
 
             <button
@@ -372,94 +343,16 @@ export default function HomePage({ setActivePage, openQuoteModal, onSelectQuoteF
                 setActivePage('network');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="px-6 py-3.5 bg-gradient-to-r from-red-600 to-amber-500 text-white font-bold text-sm rounded-xl shadow-lg flex items-center gap-2 hover:opacity-95 transition-all"
+              className="px-6 py-3.5 bg-gradient-to-r from-red-600 to-amber-500 text-white font-bold text-sm rounded-xl shadow-lg flex items-center gap-2 hover:opacity-95 transition-all shrink-0 self-start md:self-auto"
             >
               <span>View Global Network & Focus Countries</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="lg:col-span-7 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 relative overflow-hidden shadow-xl transition-colors">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 mb-6">
-              <span className="text-xs font-bold text-slate-800 dark:text-slate-300 uppercase tracking-wider">
-                Live Trade Corridor Status
-              </span>
-              <span className="text-[11px] text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full font-semibold flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                All Cross-Border Gates Open
-              </span>
-            </div>
-
-            {/* Visual Corridor Matrix */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                {
-                  category: 'Intra-ASEAN Route',
-                  route: 'Malaysia ↔ Singapore',
-                  turnaround: 'Turnaround: 18 – 24 Hours',
-                  detail: 'Bonded 5T & 40FT Trailers',
-                  isRed: true
-                },
-                {
-                  category: 'Northern Corridor',
-                  route: 'Malaysia ↔ Thailand',
-                  turnaround: 'Turnaround: 36 – 48 Hours',
-                  detail: 'Sadao Checkpoint Filing',
-                  isRed: false
-                },
-                {
-                  category: 'East Asia Maritime',
-                  route: 'Port Klang ↔ China',
-                  turnaround: 'Turnaround: 6 – 9 Days',
-                  detail: 'FCL & Consolidated LCL',
-                  isRed: true
-                },
-                {
-                  category: 'Intercontinental Air',
-                  route: 'KLIA ↔ Europe (FRA/AMS)',
-                  turnaround: 'Turnaround: 2 – 3 Days',
-                  detail: 'Daily Scheduled Charters',
-                  isRed: false
-                }
-              ].map((c, idx) => (
-                <div
-                  key={idx}
-                  className={`p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border relative overflow-hidden transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg ${
-                    c.isRed
-                      ? 'border-slate-200 dark:border-slate-800 hover:border-red-500/40 dark:hover:border-red-500/40'
-                      : 'border-slate-200 dark:border-slate-800 hover:border-amber-500/40 dark:hover:border-amber-500/40'
-                  }`}
-                >
-                  {/* Diagonal Brand Corner Triangle (Crimson Red / Amber Gold from logo) */}
-                  <div 
-                    className={`absolute top-0 right-0 w-11 h-11 pointer-events-none transition-transform duration-300 group-hover:scale-110 shadow-sm ${
-                      c.isRed 
-                        ? 'bg-gradient-to-bl from-red-600 via-red-600 to-red-500' 
-                        : 'bg-gradient-to-bl from-amber-400 via-amber-400 to-amber-500'
-                    }`}
-                    style={{
-                      clipPath: 'polygon(0 0, 100% 0, 100% 100%)'
-                    }}
-                  />
-
-                  <span className={`text-[11px] font-bold uppercase tracking-wider block ${
-                    c.isRed ? 'text-red-500 dark:text-red-400' : 'text-amber-500 dark:text-amber-400'
-                  }`}>
-                    {c.category}
-                  </span>
-                  <h4 className={`text-base font-bold text-slate-900 dark:text-white mt-1 pr-6 transition-colors ${
-                    c.isRed ? 'group-hover:text-red-600 dark:group-hover:text-red-400' : 'group-hover:text-amber-500 dark:group-hover:text-amber-400'
-                  }`}>
-                    {c.route}
-                  </h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{c.turnaround}</p>
-                  <div className="mt-3 text-[10px] text-slate-600 dark:text-slate-300 bg-slate-200/70 dark:bg-slate-950 px-2.5 py-1 rounded-lg inline-block font-medium border border-slate-200/50 dark:border-slate-800">
-                    {c.detail}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <InteractiveWorldMap onSelectCorridor={(corridor) => {
+            openQuoteModal({ service: corridor });
+          }} />
         </div>
       </section>
 
